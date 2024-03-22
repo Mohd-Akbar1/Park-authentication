@@ -1,0 +1,14 @@
+Create a program to manage a park,
+
+ this program should allow the user to add staff who are responsible for maintenance,
+
+  using this program,
+
+   the administrator should be able to create a routine for each staff member.
+
+    Each staff member should be able to mark his attendance 
+    and time spent based on the routine.
+
+     There should be a provision to deactivate the staff.
+     
+      if a staff is deactivated, he should not be able to log in.

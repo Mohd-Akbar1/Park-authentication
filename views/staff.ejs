@@ -1,0 +1,35 @@
+<%- include('./layouts/header') %>
+<div class="container bg-info m-5 border rounded">
+    <div class="container p-5">
+        <h1 class="dispaly-3">Welcome! <%= users.name %></h1>
+        <p><b>Your Employee Id:</b>&nbsp;&nbsp;<%= users.id %></p>
+        <p><b>Routine</b>:<%= users.Routine%></p>
+        <p><b>Mark Attendance:</b></p>
+
+        <div class="dropdown">
+            <button id="clickButton" class="btn btn-outline-light  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+               Present
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/login/Markattendence/?status=Present&id=<%= users.id %>">Present</a></li>
+              <li><a class="dropdown-item" href="/login/Markattendence/?status=Absent&id=<%= users.id %>">Absent</a></li>
+              
+            </ul>
+          </div>
+        <div class="container bg-secondary w-50">
+            <% attendies.forEach(element => { %>
+                <ol class="mt-2 border rounded p-2 bg-primary-subtle "><span><%= element.formattedDate %></span> &nbsp;&nbsp; <span><b><%= element.Status %></b></span></li>
+                </ol>
+                <hr>
+            
+            <% }) %>
+        </div>
+    </div>
+    
+
+</div>
+
+
+
+
+<%- include('./layouts/footer') %>

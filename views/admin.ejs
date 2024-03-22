@@ -1,0 +1,99 @@
+
+
+<%- include('./layouts/header') %>
+    <div class="container text-center mt-3 border bg-light rounded">
+        <h1>Admin pannel</h1>
+        <hr>
+        <p>Add new Staff</p>
+        <form action="/login/addStaff" method="post">
+            <input type="text" name="fullname" id="" placeholder="Enter FullName">
+            <input type="text" name="Routine" id="" placeholder="Enter Routine">
+            
+            <button class="btn btn-primary btn-sm">Add</button>
+        </form>
+        <hr>
+
+        <div class="container">
+            <Div class="box">
+                <!-- if  habbit list is empty  -->
+                <table class="table">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Full Name</th>
+                            <th scope="col">Routine</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Attendance</th>
+                            <th scope="col">Deactivate Staff</th>
+                          </tr>
+                    </thead>
+                <% if (users.length===0) { %>
+                 <p style="text-align: center;"><strong>Empty List</strong></p>
+                <% } else{%>
+                  <% users.forEach(user => { %>
+                   <div>
+                    <!-- //--------------------------table -->
+                    
+                        <tbody>
+                            <tr>
+                                <th ><%= user.id %></th>
+                                <td><%= user.name %></td>
+                                <td><%= user.Routine %></td>
+                              
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-outline-primary  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <%= user.Status %>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                          <li><a class="dropdown-item" href="/login/status/?status=Active&id=<%= user.id %>">Active</a></li>
+                                          <li><a class="dropdown-item" href="/login/status/?status=DeActive&id=<%= user.id %>">DeActive</a></li>
+                                          
+                                        </ul>
+                                      </div>
+                                </td>
+                                <td><a href="/login/attendence/?attendence=<%=user.id  %>"><button class="btn btn-outline-info text-dark">see</button></a> </td>
+                                <td><a href="/login/Remove/?id=<%=user.id  %>"><button class="btn btn-outline-danger text-dark">Remove</button></a> </td>
+                               
+                              </tr>
+                              
+                          
+                        
+                      
+            
+
+
+
+                    <!-- //----------table ends -->
+                    
+                   
+                 
+        
+        
+                  </div>
+                  <% }) %>
+
+               
+        
+        
+        
+        
+                  <% } %>
+
+                </table>
+              </Div>
+        </div>
+
+       
+
+    </div>
+
+
+
+
+
+
+
+
+<%- include('./layouts/footer') %>
+    
